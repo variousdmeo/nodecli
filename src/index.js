@@ -23,6 +23,13 @@ program
   });
 
 program
+    .command('http')
+    .description('run the given remote command')
+    .action(function () {
+        require('./lib/http.js');
+    });
+
+program
   .command('exec <cmd>')
   .alias('ex')
   .description('execute the given remote cmd')
@@ -64,19 +71,19 @@ program
 
 program.parse(process.argv); //开始解析用户输入的命令
 //
-if (program.small) {
-  // console.log(`- ${program.small}`)
-  console.log(`- small`, program.small)
-}
+// if (program.small) {
+//   // console.log(`- ${program.small}`)
+//   console.log(`- small`, program.small)
+// }
 // if (program.test) {
 //   console.log(`- test`, program.test)
   // console.log(`- ${program.test}`);
 // }
 
-if(program.test === undefined){
-  console.log('no  type');
-}else if(program.test === true){
-  console.log('add  type');
-}else {
-  console.log(`- test`, program.test)
-}
+// if(program.test === undefined){
+//   console.log('no  type');
+// }else if(program.test === true){
+//   console.log('add  type');
+// }else {
+//   console.log(`- test`, program.test)
+// }
